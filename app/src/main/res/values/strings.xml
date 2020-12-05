@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Quidco Demo</string>
+    <string name="tab_text_1">Artists</string>
+    <string name="tab_text_2">Albums</string>
+    <string name="tab_text_3">Tracks</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="double_press_exit">Press again to exit</string>
+    <string name="search_lbl">Search</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="internet_not_available">Internet is not available</string>
+    <string name="fields_cant_be_empty">Field can\'t be empty</string>
+    <string name="logout">Logout</string>
+
+    <string name="logout_msg"><![CDATA["Are you sure you want to logout?"]]></string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="skip">Enter without login</string>
+    <string name="no_list_found">No Data Found</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="by_dixit_patel">By Dixit Patel</string>
+
+    <string name="okhttp_log_level" translatable="false">BODY</string>
+</resources>

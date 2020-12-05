@@ -1,0 +1,51 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary</item>
+        <item name="colorAccent">@color/color_secondary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DialogButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_rect_blue_border</item>
+        <item name="android:paddingBottom">@dimen/dimen_5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingEnd">@dimen/dimen_12dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_12dp</item>
+        <item name="android:paddingRight">@dimen/dimen_12dp</item>
+        <item name="android:paddingStart">@dimen/dimen_12dp</item>
+        <item name="android:paddingTop">@dimen/dimen_5dp</item>
+        <item name="android:textColor">@color/light_shadow</item>
+    </style>
+
+    <style name="AppBottomSheetDialogThemeWhiteWoShadow2" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item> <!-- This is important -->
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/transparent
+        </item> <!-- And then this will be needed -->
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/white</item>
+        <item name="bottomSheetStyle">@style/AppModalStyleWhiteWoShadow</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="colorPrimaryDark">@color/color_primary_variant</item>
+        <item name="colorAccent">@color/color_primary</item>
+    </style>
+
+    <style name="AppModalStyleWhiteWoShadow" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_white_background_top</item>
+    </style>
+
+</resources>

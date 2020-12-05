@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.dixitpatel.quidcodemo.ui.login.LoginActivityViewModel"/>
+        <variable
+            name="clickHandler"
+            type="com.dixitpatel.quidcodemo.ui.login.LoginActivityEventHandler"/>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textDirection="locale"
+            android:layout_above="@id/tilPassword"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            app:boxStrokeColor="@color/color_primary_variant">
+
+            <!--Two way binding username-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieUserName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensans_regular"
+                android:hint="@string/username"
+                android:maxLength="50"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:inputType="text"
+                android:text="@={viewModel.username}"
+                android:textSize="@dimen/text_size_15sp"
+                app:elevation="@dimen/dimen_10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_8dp"
+            android:textDirection="locale"
+            android:layout_centerVertical="true"
+            app:boxStrokeColor="@color/color_primary_variant">
+
+            <!--Two way binding username-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiePassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensans_regular"
+                android:hint="@string/password"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:inputType="textPassword"
+                android:textAlignment="viewStart"
+                android:maxLength="50"
+                android:singleLine="true"
+                android:text="@={viewModel.password}"
+                android:textSize="@dimen/text_size_15sp"
+                app:elevation="@dimen/dimen_10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signInBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:onClick="@{()->clickHandler.onLoginClicked()}"
+            android:textColor="@color/white"
+            app:elevation="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_8dp"
+            android:enabled="false"
+            android:layout_below="@id/tilPassword"
+            android:layout_marginTop="@dimen/activity_horizontal_margin" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:text="@string/app_name"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_25sp"
+            android:layout_marginTop="@dimen/dimen_30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/by_dixit_patel"
+            android:fontFamily="@font/poppins_light"
+            android:textColor="@color/black"
+            android:layout_below="@+id/tvTitle"
+            android:textSize="@dimen/text_size_18sp"
+            android:layout_marginTop="@dimen/dimen_10dp" />
+
+
+
+    </RelativeLayout>
+</layout>
