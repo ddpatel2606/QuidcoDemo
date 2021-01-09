@@ -1,7 +1,7 @@
 # QuidcoDemo
 
-Username : itpateldixit<br />
-Password : Pi?6PFH8,aG55,h
+Username : <b>itpateldixit</b><br />
+Password : <b>Pi?6PFH8,aG55,h</b>
 
 ## Tech stack & Open-source libraries
  - Minimum SDK level 23
