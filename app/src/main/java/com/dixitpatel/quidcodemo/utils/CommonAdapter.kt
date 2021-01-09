@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dixitpatel.quidcodemo.ui.artists.model.Artist
 import timber.log.Timber
 
-
+/**
+ *  Common Adapter class.
+ */
 abstract class CommonAdapter<T>(data: ArrayList<T?>) : RecyclerView.Adapter<CommonAdapter.CommonViewHolder>()
 {
     private var data = data

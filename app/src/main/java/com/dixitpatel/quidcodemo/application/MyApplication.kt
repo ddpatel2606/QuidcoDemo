@@ -21,7 +21,9 @@ class MyApplication : DaggerApplication()
             AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         }
     }
-
+    /**
+     * Bind Android Injectors with DaggerComponent
+     */
     override fun applicationInjector(): AndroidInjector<MyApplication?>? {
         return DaggerMainAppComponent.factory().create(this)
     }
@@ -30,10 +32,13 @@ class MyApplication : DaggerApplication()
         super.onCreate()
         instance = this
 
-        if (BuildConfig.DEBUG) {
+        // If the build is on debug mode from Android studio then Logcat printed otherwise not to display.
+        if (BuildConfig.DEBUG)
+        {
             Timber.plant(Timber.DebugTree())
         }
 
+        // App is Compatible with Night and Day mode.
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         Preferences.setPreference(PrefEntity.PREFERENCE_NIGHT_MODE, false)
     }

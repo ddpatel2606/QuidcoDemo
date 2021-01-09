@@ -1,7 +1,11 @@
 package com.dixitpatel.quidcodemo.network
 
-enum class AuthStatus {
-        SUCCESS,
-        ERROR,
-        LOADING
+/**
+ *  Authentication status
+ */
+sealed class AuthStatus
+{
+        object SUCCESS : AuthStatus()
+        object ERROR : AuthStatus()
+        object LOADING : AuthStatus()
 }

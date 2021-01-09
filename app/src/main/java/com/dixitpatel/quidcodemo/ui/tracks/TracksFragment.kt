@@ -241,7 +241,6 @@ class TracksFragment : BaseFragment<TracksViewModel>(), SwipeRefreshLayout.OnRef
                             .error(R.drawable.icon_loading_place_holder)
                             .into(binding.ivCategoryImage)
 
-
                         binding.root.setOnClickListener {
 
                             val intent = Intent(requireActivity(), DetailViewActivity::class.java)

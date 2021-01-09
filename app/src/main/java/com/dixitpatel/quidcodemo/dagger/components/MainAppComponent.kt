@@ -9,6 +9,10 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
+/**
+ * This is MainAppComponent class where all modules are defined
+ * i.e. ActivityModules, CommonAppModule, NetworkModule.
+ */
 @Singleton
 @Component(modules = [  AndroidSupportInjectionModule::class,
                         NetworkModule::class,

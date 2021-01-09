@@ -11,8 +11,12 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 
+/**
+ *  All Network Calling Apis are define here with Coroutine function.
+ */
 interface ApiInterface {
 
+    // Get User Top Album
     @GET("2.0")
     suspend fun getUserTopAlbums(
         @Query("method") method: String?,
@@ -22,6 +26,7 @@ interface ApiInterface {
         @Query("page") page: Int?
     ): Response<GetAlbumOutputModel>?
 
+    // Get User Top Artists
     @GET("2.0")
     suspend fun getUserTopArtists(
         @Query("method") method: String?,
@@ -31,6 +36,7 @@ interface ApiInterface {
         @Query("page") page: Int?
     ): Response<ArtistListOutputModel>?
 
+    // Get User Top Tracks
     @GET("2.0")
     suspend fun getUserTopTracks(
         @Query("method") method: String?,
@@ -40,6 +46,7 @@ interface ApiInterface {
         @Query("page") page: Int?
     ): Response<GetTrackOutPutModel>?
 
+    // User LoginAPI
     @POST("2.0")
     suspend fun loginAPI(
         @Query("method") method: String?,

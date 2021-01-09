@@ -16,7 +16,6 @@ import dagger.android.ContributesAndroidInjector
 /**
  * This is Dagger Activity Builder Which ever activity will be used all activity should be mention
  * here as a Dagger Module.
- *
  */
 @Module
 abstract class ActivityBuilder {

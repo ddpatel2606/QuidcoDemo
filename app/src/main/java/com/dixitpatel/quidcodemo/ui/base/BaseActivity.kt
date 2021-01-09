@@ -10,14 +10,12 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.ViewModel
 import dagger.android.support.DaggerAppCompatActivity
 
+/**
+ *  Base Activity : all activity will extend this and pass their ViewModel object as Generic type.
+ */
+abstract class BaseActivity<out T : ViewModel?> : DaggerAppCompatActivity() {
 
-abstract class BaseActivity<T : ViewModel?> : DaggerAppCompatActivity() {
-
-    interface OnKeyboardVisibilityListener {
-        fun onVisibilityChanged(visible: Boolean)
-    }
-
-    var me: BaseActivity<*>? = null
+    lateinit var me: BaseActivity<*>
     private var viewModel: T? = null
 
     /**

@@ -4,7 +4,10 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import dagger.android.support.DaggerFragment
 
-abstract class BaseFragment<T : ViewModel?> : DaggerFragment() {
+/**
+ *  Base Fragment : all fragments will extend this and pass their ViewModel object as Generic type.
+ */
+abstract class BaseFragment<out T : ViewModel?> : DaggerFragment() {
     private var viewModel: T? = null
 
     /**

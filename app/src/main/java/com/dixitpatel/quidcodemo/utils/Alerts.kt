@@ -36,36 +36,6 @@ import java.util.*
  */
 object Alerts {
 
-
-    fun showListPopupMenu(
-        context: Context,
-        v: View?,
-        arrayListId: Int,
-        mOnPopupWindowItemClick: OnPopupWindowItemClick?
-    ): ListPopupWindow {
-        val listPopupWindow = ListPopupWindow(context, null, R.attr.listPopupWindowStyle)
-        val adapter = ArrayAdapter<CharSequence>(
-            context,
-            R.layout.layout_popup_item,
-            context.resources.getStringArray(arrayListId)
-        )
-        listPopupWindow.setAdapter(adapter)
-        listPopupWindow.horizontalOffset = -200
-        listPopupWindow.verticalOffset = -50
-        listPopupWindow.width = Utils.dpToPx(context, 200).toInt()
-        listPopupWindow.isModal = true
-        listPopupWindow.height = ListPopupWindow.WRAP_CONTENT
-        listPopupWindow.anchorView = v
-        listPopupWindow.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
-            mOnPopupWindowItemClick?.setOnItemClick(position)
-            listPopupWindow.dismiss()
-        }
-        if (listPopupWindow.isShowing) {
-            listPopupWindow.dismiss()
-        }
-        return listPopupWindow
-    }
-
     private var dialog: Dialog? = null
 
     fun showProgressBar(context: Context?) {
@@ -148,77 +118,6 @@ object Alerts {
         }
     }
 
-    fun showBottomSheetListDialog(
-        context: Activity,
-        data: List<String>,
-        title: String?,
-        onSearchableDialog: OnSearchableDialog<Int>?
-    ) {
-        try {
-            val mBottomSheetDialog =
-                BottomSheetDialog(context, R.style.AppBottomSheetDialogThemeWhiteWoShadow2)
-            val sheetView = context.layoutInflater.inflate(R.layout.dialog_recycler, null, false)
-            val binding = DialogRecyclerBinding.bind(sheetView)
-            binding.rvItems.visibility = View.VISIBLE
-            binding.rvItems.layoutManager =
-                LinearLayoutManagerWrapper(context, RecyclerView.VERTICAL, false)
-            binding.rvItems.isNestedScrollingEnabled = false
-            mBottomSheetDialog.setContentView(binding.root)
-            val v1 = sheetView.parent as View
-            v1.setBackgroundColor(Color.TRANSPARENT)
-            if (title != null) {
-                binding.tvTitle.text = title
-                binding.tvTitle.visibility = View.VISIBLE
-                binding.vw1.visibility = View.VISIBLE
-            } else {
-                binding.tvTitle.visibility = View.GONE
-                binding.vw1.visibility = View.GONE
-            }
-
-            class MyViewHolder(var binder: RowItemPopupDialogBinding) :
-                RecyclerView.ViewHolder(
-                    binder.root
-                )
-
-            class GenderAdapter : RecyclerView.Adapter<MyViewHolder>() {
-                var binder: RowItemPopupDialogBinding? = null
-
-                override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-                    holder.binder.item = data[holder.adapterPosition]
-                    val mTextView = holder.itemView.findViewById<TextView>(R.id.tvItem)
-                    if (data[holder.adapterPosition] === context.getString(R.string.cancel)) {
-                        mTextView.setTextColor(ContextCompat.getColor(context, R.color.black))
-                    } else {
-                        mTextView.setTextColor(
-                            ContextCompat.getColor(
-                                context,
-                                R.color.color_primary_variant
-                            )
-                        )
-                    }
-                    val binding = holder.binder
-                    holder.binder.root.setOnClickListener {
-                        onSearchableDialog?.onItemSelected(data[holder.adapterPosition].toInt())
-                        mBottomSheetDialog.dismiss()
-                    }
-                }
-
-                override fun getItemCount(): Int {
-                    return data.size
-                }
-
-                override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-                    binder =
-                        RowItemPopupDialogBinding.inflate(context.layoutInflater, parent, false)
-                    return MyViewHolder(binder!!)
-                }
-            }
-            binding.rvItems.adapter = GenderAdapter()
-            mBottomSheetDialog.show()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
 
     @Throws(Exception::class)
     fun showSnackBar(context: Activity, message: String?) {

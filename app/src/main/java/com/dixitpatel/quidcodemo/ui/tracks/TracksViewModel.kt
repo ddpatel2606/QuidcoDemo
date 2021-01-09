@@ -32,7 +32,6 @@ class TracksViewModel @Inject constructor() : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             val response: Response<GetTrackOutPutModel> = apiInterface.getUserTopTracks(method,username, API_KEY,format,page)!!
 
-
             try {
                 withContext(Dispatchers.Main) {
                     if (response.isSuccessful) {
