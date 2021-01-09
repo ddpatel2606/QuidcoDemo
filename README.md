@@ -1,6 +1,6 @@
 # QuidcoDemo
 
-Username : itpateldixit\n
+Username : itpateldixit<br />
 Password : Pi?6PFH8,aG55,h
 
 ## Tech stack & Open-source libraries
